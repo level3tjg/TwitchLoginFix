@@ -55,6 +55,13 @@ static void auth(_TtC6Twitch23LoggedOutViewController *loggedOutViewController, 
 }
 %end
 
+%hook _TtC6Twitch21PrivacyConsentManager
+- (void)userAvailabilityChanged {
+}
+- (void)refreshIfNeeded {
+}
+%end
+
 %ctor {
   if ([%c(_TtC6Twitch23LoggedOutViewController)
           instancesRespondToSelector:@selector

@@ -51,9 +51,20 @@
                   @"var head = document.getElementsByTagName('head')[0];"
                   @"head.appendChild(meta);"
                   @"head.appendChild(style);"
+                  @"var cookieGetter = document.__lookupGetter__('cookie');"
+                  @"var cookieSetter = document.__lookupSetter__('cookie');"
+                  @"document.__defineGetter__('cookie', cookieGetter);"
                   @"document.__defineSetter__('cookie', function(cookie) {"
                   @"  window.webkit.messageHandlers.cookie.postMessage(cookie);"
+                  @"  return cookieSetter.apply(this, arguments);"
                   @"});"
+                  @"var orig_fetch = window.fetch;"
+                  @"window.fetch = function(url, options) {"
+                  @"  if (typeof url === 'string' && url.endsWith('protected_login'))"
+                  @"    if (typeof options.body === 'string')"
+                  @"      options.body = options.body.replace('kimne78kx3ncx6brgo4mv6wki5h1ko', '85lcqzxpb9bqu9z6ga1ol55du');"
+                  @"  return orig_fetch.apply(this, arguments);"
+                  @"}"
            // clang-format on
            injectionTime:WKUserScriptInjectionTimeAtDocumentEnd
         forMainFrameOnly:YES];

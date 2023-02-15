@@ -1,8 +1,9 @@
 Package: com.level3tjg.twitchloginfix
 Name: TwitchLoginFix
-Version: 0.0.1
+Version: 0.0.2
 Architecture: iphoneos-arm
 Description: Allow logging in on older Twitch app versions
+Depiction: https://level3tjg.me/repo/depictions/?p=com.level3tjg.twitchloginfix
 Maintainer: level3tjg
 Author: level3tjg
 Section: Tweaks
